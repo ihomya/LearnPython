@@ -1,0 +1,5 @@
+a = input('Please input the frist number ')
+a = int(a)
+b = input('Please input the second number')
+b = int(b)
+print('a * b =',a*b)
