@@ -21,10 +21,17 @@ print(fact(5))
 # Python 标准的解释器没有针对尾递归做优化，任何递归函数都存在栈溢出的问题
 
 # 练习
+# # 利用递归函数移动汉诺塔:
+### 从 A 借助 B 移动到 C 的方法
+### n表示3个柱子A、B、C中第1个柱子A的盘子数量
 def move(n,a,b,c):
     if n == 1:
-        return a+' --> '+c
+        print(a,' --> ',c)
     else:
-        return move(2**n - 1,a,b,c)
+        move(n-1, a, c, b)  #例如三块，就先把上面两块借助中间的c移到b
 
-print(move(3,'a','b','c'))
+        move(1,a,b,c)    #然后最下面的那个最大的那块，就可以移动到c终点
+
+        move(n-1,b,a,c)    #最后再把剩下的那两块借助a移动到c终点搭好
+
+move(3,'a','b','c')
